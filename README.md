@@ -10,12 +10,22 @@ This library is open source. We encourage you to contribute to make the code bas
 ## Requirement
 
 
+### Optional 
+
+- PHPUnit, unit testing for PHP. [Getting Started](https://phpunit.de/getting-started.html)
+
+- PHP version update. 5.6 or above is required. Latest version 7.1. 
+```php
+$ brew install homebrew/php/php71
+```
+
 ## Installation
+
 
 
 ### Configuration 
 
-Update Hyphenate app configurations before use the constructor, Hyphenate class.
+Update Hyphenate app configurations before use the constructor of the class, Hyphenate.
 
 ```php
 $options['client_id']='hyphenatedemo';
