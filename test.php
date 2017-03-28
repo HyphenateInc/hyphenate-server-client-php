@@ -18,7 +18,7 @@
 
         $h=new Hyphenate($options);
 
-        $i=70;
+        $i=14;
         switch($i){
 
             case 10:    // get authentication token

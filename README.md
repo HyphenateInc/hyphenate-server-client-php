@@ -18,9 +18,7 @@ This library is open source. We encourage you to contribute to make the code bas
 header('Location: '.$uri.'/hyphenate-server-client-php/');
 ```
 
-- mkdir(): Permission denied issue. 
-
-
+>>>>>>> Stashed changes
 
 ### Optional 
 

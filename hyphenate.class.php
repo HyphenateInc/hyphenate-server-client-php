@@ -726,7 +726,7 @@ class Hyphenate {
     function removeGroupMemberFromBlacklist($group_id, $username){
         $url=$this->url.'chatgroups/'.$group_id.'/blocks/users/'.$username;
         $header=array($this->getToken());
-        $result=$this->postCurl($url,'',$header,'DELETE');
+        $result=$this->postCurl($url, '', $header, 'DELETE');
         return $result;
     }
 
@@ -737,7 +737,7 @@ class Hyphenate {
         $url=$this->url.'chatgroups/'.$group_id.'/blocks/users';
         $body=json_encode($usernames);
         $header=array($this->getToken());
-        $result=$this->postCurl($url,$body,$header,'DELETE');
+        $result=$this->postCurl($url, $body, $header, 'DELETE');
         return $result;
     }
 
@@ -753,7 +753,7 @@ class Hyphenate {
         $url=$this->url.'chatrooms';
         $header=array($this->getToken());
         $body=json_encode($options);
-        $result=$this->postCurl($url,$body,$header);
+        $result=$this->postCurl($url, $body, $header);
         return $result;
     }
 
@@ -762,8 +762,9 @@ class Hyphenate {
     */
     function modifyChatRoom($chatroom_id, $options){
         $url=$this->url.'chatrooms/'.$chatroom_id;
+        $header=array($this->getToken());
         $body=json_encode($options);
-        $result=$this->postCurl($url,$body,$header,'PUT');
+        $result=$this->postCurl($url, $body, $header, 'PUT');
         return $result;
     }
 
@@ -773,7 +774,7 @@ class Hyphenate {
     function deleteChatRoom($chatroom_id){
         $url=$this->url.'chatrooms/'.$chatroom_id;
         $header=array($this->getToken());
-        $result=$this->postCurl($url,'',$header,'DELETE');
+        $result=$this->postCurl($url, '', $header, 'DELETE');
         return $result;
     }
 
@@ -887,7 +888,7 @@ class Hyphenate {
     /**
      *  $this->postCurl method
      */
-    function postCurl($url,$body,$header,$type="POST") {
+    function postCurl($url, $body, $header, $type="POST") {
 
         // 1. create a curl resources
         $ch = curl_init();
