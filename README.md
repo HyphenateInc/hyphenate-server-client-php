@@ -18,8 +18,6 @@ This library is open source. We encourage you to contribute to make the code bas
 header('Location: '.$uri.'/hyphenate-server-client-php/');
 ```
 
->>>>>>> Stashed changes
-
 ### Optional 
 
 - PHPUnit, unit testing for PHP. [Getting Started](https://phpunit.de/getting-started.html)
