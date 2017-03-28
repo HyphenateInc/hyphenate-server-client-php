@@ -9,6 +9,18 @@ This library is open source. We encourage you to contribute to make the code bas
 
 ## Requirement
 
+- Run PHP file on localhost
+
+1. Download Apache XAMPP [download](https://www.apachefriends.org/download.html)
+2. Place the PHP project folder in `Applications/XAMPP/xamppfiles/htdocs/`
+3. Update `index.php` header from `Applications/XAMPP/xamppfiles/htdocs/` to point to project folder
+```php
+header('Location: '.$uri.'/hyphenate-server-client-php/');
+```
+
+- mkdir(): Permission denied issue. 
+
+
 
 ### Optional 
 
@@ -28,10 +40,10 @@ $ brew install homebrew/php/php71
 Update Hyphenate app configurations before use the constructor of the class, Hyphenate.
 
 ```php
-$options['client_id']='hyphenatedemo';
-$options['client_secret']='demo';
-$options['org_name']='YXA68E7DkM4uEeaPwTPbScypMA';
-$options['app_name']='YXA63_RZdbtXQB9QZsizSCgMC70_4Rs';
+$options['org_name']='hyphenatedemo';
+$options['app_name']='demo';
+$options['client_id']='YXA68E7DkM4uEeaPwTPbScypMA';
+$options['client_secret']='YXA63_RZdbtXQB9QZsizSCgMC70_4Rs';
 
 $h=new Hyphenate($options);
 ```

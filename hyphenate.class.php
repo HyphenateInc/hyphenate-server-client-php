@@ -55,7 +55,6 @@ class Hyphenate {
         //var_dump($tokenResult['expires_in']);
         //return $tokenResult;
         return "Authorization:Bearer ".$tokenResult['access_token'];
-
     }
     /*
         create a Hyphenate IM account
@@ -137,38 +136,41 @@ class Hyphenate {
     }
 
     // create directory
-    function mkdirs($dir, $mode = 0777)
+    function mkdir($dir, $mode = 0777)
     {
         if (is_dir($dir) || @mkdir($dir, $mode)) return TRUE;
-        if (!mkdirs(dirname($dir), $mode)) return FALSE;
+        if (!mkdir(dirname($dir), $mode)) return FALSE;
         return @mkdir($dir, $mode);
     }
     // write cursor
-    function writeCursor($filename,$content){
+    function writeCursor($filename, $content){
         // create file if not exist
-        if(!file_exists("resource/txtfile")){
-            mkdirs("resource/txtfile");
+        if(!file_exists("resources/txtfile")){
+            mkdir("resources/txtfile");
         }
-        $myfile=@fopen("resource/txtfile/".$filename,"w+") or die("Unable to open file!");
+        $myfile=@fopen("resources/txtfile/".$filename,"a") or die("Unable to open file!");
         @fwrite($myfile,$content);
         fclose($myfile);
     }
     // read cursor
     function readCursor($filename){
         // create file if not exist
-        if(!file_exists("resource/txtfile")){
-            mkdirs("resource/txtfile");
+        if(!file_exists("resources/txtfile")) {
+            mkdir("resources/txtfile");
         }
-        $file="resource/txtfile/".$filename;
-        $fp=fopen($file,"a+");  // mode a+
+
+        $file="resources/txtfile/".$filename;
+        $fp=fopen($file, 'w+');
+
         if($fp){
             while(!feof($fp)){
                 // length of reading
                 $data=fread($fp,1000);
+                return $data;
             }
             fclose($fp);
         }
-        return $data;
+        return;
     }
 
     /*
@@ -357,7 +359,7 @@ class Hyphenate {
         $result=$this->postCurl($url, '', $header, 'GET');
         $filename = md5(time().mt_rand(10, 99)).$fileType; // file name
         if(!file_exists("/downloads")){
-            mkdirs("/downloads");
+            mkdir("/downloads");
         }
 
         $file = @fopen("/downloads".$filename,"w+");    // open file to write
@@ -376,7 +378,7 @@ class Hyphenate {
         $result=$this->postCurl($url,'', $header, 'GET');
         $filename = md5(time().mt_rand(10, 99)).$fileType; // file name
         if(!file_exists("/downloads")){
-            mkdirs("/downloads");
+            mkdir("/downloads");
         }
 
         $file = @fopen("/downloads".$filename,"w+");    // open file to write
@@ -887,7 +889,7 @@ class Hyphenate {
      */
     function postCurl($url,$body,$header,$type="POST") {
 
-        // 1. create a curl resource
+        // 1. create a curl resources
         $ch = curl_init();
 
         // 2. set URL and corresponding options
@@ -949,7 +951,7 @@ class Hyphenate {
         $res=curl_exec($ch);
         $result=json_decode($res,true);
 
-        // 4. close and release curl resources
+        // 4. close and release curl resourcess
         curl_close($ch);
         if(empty($result))
             return $res;

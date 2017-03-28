@@ -11,10 +11,10 @@
         <?php
         include "hyphenate.class.php";
 
-        $options['client_id']='YOUR_CLIENT_ID';
-        $options['client_secret']='YOUR_CLIENT_SECRET';
-        $options['org_name']='YOUR_ORG_NAME';
-        $options['app_name']='YOUR_APP_NAME';
+        $options['client_id']='YXA68E7DkM4uEeaPwTPbScypMA';
+        $options['client_secret']='YXA63_RZdbtXQB9QZsizSCgMC70_4Rs';
+        $options['org_name']='hyphenatedemo';
+        $options['app_name']='demo';
 
         $h=new Hyphenate($options);
 
@@ -102,9 +102,9 @@
                 var_dump($h->disconnectUser("user001"));
                 break;
             case 32:    // upload file
-                var_dump($h->uploadFile("./resource/up/bird.jpg"));
-                //var_dump($h->uploadFile("./resource/up/betterman.mp3"));
-                //var_dump($h->uploadFile("./resource/up/cow.mp4"));
+                var_dump($h->uploadFile("./resources/media/bird.jpg"));
+                //var_dump($h->uploadFile("./resources/media/betterman.mp3"));
+                //var_dump($h->uploadFile("./resources/media/cow.mp4"));
                 break;
             case 33:    // download file
                 var_dump($h->downloadFile('01adb440-7be0-11e5-8b3f-e7e11cda33bb','Aa20SnvgEeWul_Mq8KN-Ck-613IMXvJN8i6U9kBKzYo13RL5'));
@@ -135,7 +135,7 @@
                 var_dump($h->sendCmd($from, $target_type, $target, $action, $ext));
                 break;
             case 37:    // send image file
-                $filePath="./resource/up/bird.jpg";
+                $filePath="./resources/media/bird.jpg";
                 $from='admin';
                 $target_type="users";
                 $target=array("user001", "user002");
@@ -145,7 +145,7 @@
                 var_dump($h->sendImage($filePath, $from, $target_type, $target, $filename, $ext));
                 break;
             case 38:    // send audio file
-                $filePath="./resource/up/betterman.mp3";
+                $filePath="./resources/media/betterman.mp3";
                 $from='admin';
                 $target_type="users";
                 $target=array("user001", "user002");
@@ -156,7 +156,7 @@
                 var_dump($h->sendAudio($filePath, $from="admin", $target_type, $target, $filename, $length, $ext));
                 break;
             case 39:    // send video file
-                $filePath="./resource/up/cow.mp4";
+                $filePath="./resources/media/cow.mp4";
                 $from='admin';
                 $target_type="users";
                 $target=array("user001", "user002");
